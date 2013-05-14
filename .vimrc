@@ -45,8 +45,14 @@ set number
 "smart indenting
 filetype indent plugin on
 
+"tabstop will default to 4
+set tabstop=4
+
 "python files
 au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+"c files
+au FileType c,cpp setlocal expandtab
 
 "buffers we aren't editing aren't on the screen
 set hidden
@@ -57,9 +63,11 @@ set scroll=5
 "sets the number of lines that must be on-screen
 set scrolloff=6
 
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+
 "key mappings
 map <C-j> <C-e>
 map <C-k> <C-y>
 map <C-f> :FufFile<CR>
-map <C-h> :bprevious
-map <C-l> :bnext
+map <C-h> :bprevious<CR>
+map <C-l> :bnext<CR>
