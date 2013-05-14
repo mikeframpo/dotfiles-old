@@ -1,19 +1,20 @@
 "TODO
-"map ctrl-j/k to scroll
 "map ctrl-h/l to next/rev buffers
-"Figure out how to use fuzzyfinder or cmd-t
 "figure out how to close a buffer with bd (if pos)
 "
 "	Ack:
 "		:cope/:ccl	open/close quickfix
 "		Ack term	case sensitive search for term
 "	Buffers:
+"		:Ctrl-h		previous buffer
+"		:Ctrl-l		next buffer
 "		:bN		change to buffer number N
 "		:bn/:bp		next prev
 "		:ls		list buffers
 "		:bd[N]		close the current buffer, or buf N, doesn't
 "		seem to work with minibuf
 "	Navigating:
+"		Ctrl-j/k	scroll one line up/down
 "		zz		center screen on cursor
 "		Ctrl-o		back edit location
 "		Ctrl-i		forward edit location
@@ -25,6 +26,7 @@
 "	Regenerate Help files:
 "		:helptags ~/.vim/doc	
 "	FuzzyFinder:
+"		Ctrl-f open FufFile
 "		:FufFile
 "		**/filename	recursively searches the directory for a file.
 "
@@ -50,8 +52,14 @@ au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 set hidden
 
 "the number of lines to scroll with ctrl-U/ctrl-D
-set scroll=3
+set scroll=5
 
 "sets the number of lines that must be on-screen
 set scrolloff=6
 
+"key mappings
+map <C-j> <C-e>
+map <C-k> <C-y>
+map <C-f> :FufFile<CR>
+map <C-h> :bprevious
+map <C-l> :bnext
