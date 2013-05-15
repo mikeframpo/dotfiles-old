@@ -1,6 +1,7 @@
 "TODO
 "map ctrl-h/l to next/rev buffers
 "figure out how to close a buffer with bd (if pos)
+"find a plugin to highlight all other instances of a word
 "
 "	Ack:
 "		:cope/:ccl	open/close quickfix
@@ -41,6 +42,9 @@ syntax on
 
 "line numbering
 set number
+
+"search highlighting on
+set hlsearch
 
 "smart indenting
 filetype indent plugin on
