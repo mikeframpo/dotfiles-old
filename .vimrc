@@ -1,11 +1,11 @@
 "TODO
-"map ctrl-h/l to next/rev buffers
-"figure out how to close a buffer with bd (if pos)
-"find a plugin to highlight all other instances of a word
+"view whitespace?
 "
 "	Ack:
 "		:cope/:ccl	open/close quickfix
 "		Ack term	case sensitive search for term
+"		<leader>gg	Ack grep for a word.
+"		<leader>gw	Ack grep for the word under the cursor.
 "	Buffers:
 "		:Ctrl-h		previous buffer
 "		:Ctrl-l		next buffer
@@ -75,3 +75,7 @@ map <C-k> <C-y>
 map <C-f> :FufFile<CR>
 map <C-h> :bprevious<CR>
 map <C-l> :bnext<CR>
+
+"Here comes the AckAck
+map <leader>gg :Ack! "" **<left><left><left><left>
+map <leader>gw :Ack! "\b<cword>\b"<CR>
