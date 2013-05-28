@@ -76,6 +76,10 @@ map <C-f> :FufFile<CR>
 map <C-h> :bprevious<CR>
 map <C-l> :bnext<CR>
 
+"moving up and down moves visual lines, not actual lines.
+noremap j gj
+noremap k gk
+
 "Here comes the AckAck
 map <leader>gg :Ack! "" **<left><left><left><left>
 map <leader>gw :Ack! "\b<cword>\b"<CR>
