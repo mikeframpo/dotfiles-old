@@ -58,6 +58,13 @@ au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 "c files
 au FileType c,cpp setlocal expandtab
 
+"don't display whitespace by default, listchars displays pretty much everything
+set list
+set listchars=tab:>-,trail:•,extends:#,nbsp:.,eol:%
+
+"turn on spell checking - why not?
+set spell
+
 "buffers we aren't editing aren't on the screen
 set hidden
 
