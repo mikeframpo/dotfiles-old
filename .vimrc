@@ -1,5 +1,6 @@
 "TODO
-"view whitespace?
+"fix tabsize
+"display a vertical line at 99 chars?
 "
 "	Ack:
 "		:cope/:ccl	open/close quickfix
