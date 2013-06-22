@@ -1,6 +1,6 @@
 "TODO
 "fix tabsize
-"display a vertical line at 99 chars?
+"allow ctrl-j/k to work in insert mode
 "
 "	Ack:
 "		:cope/:ccl	open/close quickfix
@@ -55,9 +55,11 @@ set tabstop=4
 
 "python files
 au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+au FileType python setlocal colorcolumn=79
 
 "c files
 au FileType c,cpp setlocal expandtab
+au FileType c,cpp setlocal colorcolumn=99
 
 "don't display whitespace by default, listchars displays pretty much everything
 set list
