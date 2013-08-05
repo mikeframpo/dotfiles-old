@@ -1,6 +1,7 @@
 "TODO
-"fix tabsize
+"draw tabs,spaces and newlines all the time (optionally).
 "allow ctrl-j/k to work in insert mode
+"add macros for inserting figures and equations in latex
 "
 "	Ack:
 "		:cope/:ccl	open/close quickfix
@@ -31,7 +32,19 @@
 "		Ctrl-f open FufFile
 "		:FufFile
 "		**/filename	recursively searches the directory for a file.
+"	Registers:
+"		v mode (text selected):
+"			"<reg>y			yank into register
+"							similarly, can d into <reg>
+"		insert mode:
+"			ctrl-R<reg>		pastes contents at cursor.
+"			ctrl-R/			pastes the last search
+"								this works in command mode too.
 "
+"
+"Useful commands
+"	@:		Last colon command
+"	@@			repeat again
 
 "initial window size
 set lines=55 columns=130
@@ -50,11 +63,23 @@ set hlsearch
 "smart indenting
 filetype indent plugin on
 
-"tabstop will default to 4
+"indentation quick guide
+" tabstop		the number of columns used to display a <tab>
+" expandtab		use spaces instead of tabs
+" shiftwidth=n	n columns are used when << or >> is used
+" softtabstop=n	n columns are displayed when tab is pressed in insert mode,
+" 					this will only apply if expandtab is not set, if sts is
+" 					less than tabstop a mix of tabs and spaces will be used
+" 					to reach the desired spacing.
+
+"the default settings
 set tabstop=4
+set noexpandtab
+set shiftwidth=4
+set softtabstop=4
 
 "python files
-au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+au FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType python setlocal colorcolumn=79
 
 "c files
