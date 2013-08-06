@@ -1,7 +1,6 @@
 "TODO
 "draw tabs,spaces and newlines all the time (optionally).
 "allow ctrl-j/k to work in insert mode
-"add macros for inserting figures and equations in latex
 "
 "	Ack:
 "		:cope/:ccl	open/close quickfix
@@ -40,6 +39,9 @@
 "			ctrl-R<reg>		pastes contents at cursor.
 "			ctrl-R/			pastes the last search
 "								this works in command mode too.
+"		append to reg
+"			if reg name is 'a'
+"			"Ayy	will append the current line to a
 "
 "
 "Useful commands
