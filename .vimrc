@@ -1,7 +1,8 @@
 "TODO
 "draw tabs,spaces and newlines all the time (optionally).
 "allow ctrl-j/k to work in insert mode
-"add macros for inserting figures and equations in latex
+"allow a grep-path to be specified, if the path hasn't been specified
+"	then `pwd` should be used.
 "
 "	Ack:
 "		:cope/:ccl	open/close quickfix
@@ -45,6 +46,9 @@
 "Useful commands
 "	@:		Last colon command
 "	@@			repeat again
+"
+"	:s/<from>/<to>/g		seach and replace all instances of <from>
+"	:s/<from>/<to>/gc		replace all instances, but confirm first
 
 "initial window size
 set lines=55 columns=130
