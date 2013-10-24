@@ -46,9 +46,6 @@
 "Useful commands
 "	@:		Last colon command
 "	@@			repeat again
-"
-"	:s/<from>/<to>/g		seach and replace all instances of <from>
-"	:s/<from>/<to>/gc		replace all instances, but confirm first
 
 "initial window size
 set lines=55 columns=130
