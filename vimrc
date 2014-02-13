@@ -42,6 +42,9 @@
 "		append to reg
 "			if reg name is 'a'
 "			"Ayy	will append the current line to a
+"	HexDump:
+"		to view the current file in hex format:
+"			:%!xxd	-passes the entire file through the xxd utility
 "
 "
 "Useful commands
@@ -85,12 +88,12 @@ au FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType python setlocal colorcolumn=79
 
 "c files
-au FileType c,cpp setlocal expandtab
+au FileType c,cpp setlocal noexpandtab
 au FileType c,cpp setlocal colorcolumn=99
 
 "don't display whitespace by default, listchars displays pretty much everything
-set list
-set listchars=tab:>-,trail:•,extends:#,nbsp:.,eol:%
+set nolist
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 "turn on spell checking - why not?
 set spell
@@ -103,8 +106,6 @@ set scroll=5
 
 "sets the number of lines that must be on-screen
 set scrolloff=6
-
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
 "key mappings
 map <C-j> <C-e>
