@@ -87,6 +87,9 @@ au FileType python setlocal colorcolumn=79
 au FileType c,cpp setlocal expandtab
 au FileType c,cpp setlocal colorcolumn=99
 
+"Let vim know we're using Latex, not one of the other tex's
+let g:tex_flavor = "latex"
+
 "don't display whitespace by default, listchars displays pretty much everything
 set list
 set listchars=tab:>-,trail:•,extends:#,nbsp:.,eol:%
