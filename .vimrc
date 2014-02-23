@@ -53,6 +53,9 @@ set lines=55 columns=130
 
 colorscheme evening
 
+"show row/column
+set ruler
+
 "enable syntax highlighting
 syntax on
 
@@ -80,6 +83,13 @@ set noexpandtab
 set shiftwidth=4
 set softtabstop=4
 
+"enable backspace
+set backspace=indent,eol,start
+
+"javascript files
+au FileType javascript setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+au FileType javascript setlocal colorcolumn=79
+
 "python files
 au FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType python setlocal colorcolumn=79
@@ -89,8 +99,8 @@ au FileType c,cpp setlocal expandtab
 au FileType c,cpp setlocal colorcolumn=99
 
 "don't display whitespace by default, listchars displays pretty much everything
-set list
-set listchars=tab:>-,trail:•,extends:#,nbsp:.,eol:%
+set nolist
+set listchars=tab:>-,extends:#,nbsp:.,eol:%
 
 "turn on spell checking - why not?
 set spell
@@ -103,8 +113,6 @@ set scroll=5
 
 "sets the number of lines that must be on-screen
 set scrolloff=6
-
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
 "key mappings
 map <C-j> <C-e>
@@ -120,3 +128,11 @@ noremap k gk
 "Here comes the AckAck
 map <leader>gg :Ack! "" **<left><left><left><left>
 map <leader>gw :Ack! "\b<cword>\b"<CR>
+
+"font settings
+if has("win32")
+	set guifont=Consolas:h11:cANSI
+endif
+
+"auto completion
+
