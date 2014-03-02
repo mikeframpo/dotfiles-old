@@ -3,6 +3,7 @@
 "allow ctrl-j/k to work in insert mode
 "allow a grep-path to be specified, if the path hasn't been specified
 "	then `pwd` should be used.
+"allow smart-completion to match words in latex files that are joined by -,_
 "
 "	ack:
 "		:cope/:ccl	open/close quickfix
@@ -57,6 +58,9 @@
 "	folding:
 "		zf	fold the selected text
 "		zd	unfold selected lines
+"	case-insensitive-pattern matching
+"		:set ignorecase	and,
+"		:set noignorecase
 "
 "Useful commands
 "	@:		Last colon command
@@ -150,9 +154,13 @@ map <C-l> :bnext<CR>
 noremap j gj
 noremap k gk
 
+"vimgrep, useful for systems that don't have Ack
+map <leader>gg :vimgrep! //j **/*<left><left><left><left><left><left><left>
+map <leader>gw :execute "vimgrep /" . expand("<cword>") . "/j **/*" <CR>
+
 "Here comes the AckAck
-map <leader>gg :Ack! "" **<left><left><left><left>
-map <leader>gw :Ack! "\b<cword>\b"<CR>
+map <leader>ag :Ack! "" **<left><left><left><left>
+map <leader>aw :Ack! "\b<cword>\b"<CR>
 
 "font settings
 if has("win32")
