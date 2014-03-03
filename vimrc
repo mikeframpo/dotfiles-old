@@ -120,6 +120,9 @@ au FileType python setlocal colorcolumn=79
 au FileType c,cpp setlocal noexpandtab
 au FileType c,cpp setlocal colorcolumn=99
 
+"gradle build files are groovy code
+au BufRead,BufNewFile *.gradle setfiletype groovy
+
 "Let vim know we're using Latex, not one of the other tex's
 let g:tex_flavor = "latex"
 
