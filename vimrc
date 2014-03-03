@@ -80,6 +80,9 @@ set lines=65 columns=110
 
 colorscheme evening
 
+"show row/column
+set ruler
+
 "enable syntax highlighting
 syntax on
 
@@ -111,11 +114,23 @@ set noexpandtab
 set shiftwidth=4
 set softtabstop=4
 
+"enable backspace
+set backspace=indent,eol,start
+
 "filetype specific settings
 au FileType c,cpp,python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+au FileType c,cpp setlocal colorcolumn=99
+
+"javascript files
+au FileType javascript setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+au FileType javascript setlocal colorcolumn=79
+
+"python files
+au FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType python setlocal colorcolumn=79
 
-au FileType c,cpp setlocal colorcolumn=99
+"gradle build files are groovy code
+au BufRead,BufNewFile *.gradle setfiletype groovy
 
 "Let vim know we're using Latex, not one of the other tex's
 let g:tex_flavor = "latex"
@@ -158,4 +173,9 @@ map <leader>gw :execute "vimgrep /" . expand("<cword>") . "/j **/*" <CR>
 "Here comes the AckAck
 map <leader>ag :Ack! "" **<left><left><left><left>
 map <leader>aw :Ack! "\b<cword>\b"<CR>
+
+"font settings
+if has("win32")
+	set guifont=Consolas:h11:cANSI
+endif
 
