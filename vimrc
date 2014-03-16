@@ -108,6 +108,9 @@ set softtabstop=4
 "enable backspace
 set backspace=indent,eol,start
 
+" the default filetype is all-files
+au BufEnter * let b:grep_filetype = "*"
+
 "javascript files
 au FileType javascript setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType javascript setlocal colorcolumn=79
@@ -119,6 +122,9 @@ au FileType python setlocal colorcolumn=79
 "c files
 au FileType c,cpp setlocal noexpandtab
 au FileType c,cpp setlocal colorcolumn=99
+
+"java files
+au BufEnter *.java let b:grep_filetype = "*.java"
 
 "gradle build files are groovy code
 au BufRead,BufNewFile *.gradle setfiletype groovy
@@ -158,8 +164,8 @@ noremap j gj
 noremap k gk
 
 "vimgrep, useful for systems that don't have Ack
-map <leader>gg :vimgrep! //j **/*<left><left><left><left><left><left><left>
-map <leader>gw :execute "vimgrep /" . expand("<cword>") . "/j **/*" <CR>
+map <leader>gg :vimgrep! //j **/<c-r>=b:grep_filetype<CR> <Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
+map <leader>gw :execute "vimgrep! /" . expand("<cword>") . "/j **/<c-r>=b:grep_filetype<CR>" <CR>
 
 "Here comes the AckAck
 map <leader>ag :Ack! "" **<left><left><left><left>
