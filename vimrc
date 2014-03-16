@@ -4,6 +4,9 @@
 "allow a grep-path to be specified, if the path hasn't been specified
 "	then `pwd` should be used.
 "allow smart-completion to match words in latex files that are joined by -,_
+"stop bold font when using in terminal mode
+"allow a variable to set the search path, and include multiple filetypes e.g.
+"c,h
 "
 "	ack:
 "		:cope/:ccl	open/close quickfix
@@ -56,6 +59,12 @@
 "		do	take from other file
 "		dp	put these changes into other file
 "	folding:
+"		zo	open fold under cursor
+"		zc	close fold under cursor
+"
+"		zr	reduce fold level
+"		zm	more (increase) fold level
+"
 "		zf	fold the selected text
 "		zd	unfold selected lines
 "	case-insensitive-pattern matching
@@ -67,7 +76,7 @@
 "	@@			repeat again
 
 "initial window size
-set lines=55 columns=130
+set lines=65 columns=110
 
 colorscheme evening
 
@@ -111,17 +120,14 @@ set backspace=indent,eol,start
 " the default filetype is all-files
 au BufEnter * let b:grep_filetype = "*"
 
+"filetype specific settings
+au FileType c,cpp,python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+au FileType c,cpp,java setlocal colorcolumn=99
+au FileType python setlocal colorcolumn=79
+
 "javascript files
 au FileType javascript setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType javascript setlocal colorcolumn=79
-
-"python files
-au FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
-au FileType python setlocal colorcolumn=79
-
-"c files
-au FileType c,cpp setlocal noexpandtab
-au FileType c,cpp setlocal colorcolumn=99
 
 "java files
 au BufEnter *.java let b:grep_filetype = "*.java"
