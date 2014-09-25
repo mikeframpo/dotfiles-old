@@ -146,21 +146,22 @@ set wrap
 "only wrap after characters in the breakat variable
 set linebreak
 
-let @g='**/*'
+" the default filetype is all-files
+au BufEnter * let b:grep_filetype = "**/*"
 
 "filetype specific settings
-au FileType c,cpp setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
-au FileType c,cpp setlocal colorcolumn=99
-au FileType c,cpp let @g='**/*.c **/*.cpp **/*.h'
+au FileType c,cpp,python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+au FileType c,cpp,java setlocal colorcolumn=99
+au FileType python setlocal colorcolumn=79
+au BufEnter *.c,*.cpp,*.h let b:grep_filetype='**/*.c **/*.cpp **/*.h'
+au BufEnter *.py let b:grep_filetype='**/*.py'
 
 "javascript files
 au FileType javascript setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType javascript setlocal colorcolumn=79
 
-"python files
-au FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
-au FileType python setlocal colorcolumn=79
-au FileType python let @g='**/*.py'
+"java files
+au BufEnter *.java let b:grep_filetype = "**/*.java"
 
 "gradle build files are groovy code
 au BufRead,BufNewFile *.gradle setfiletype groovy
@@ -200,8 +201,8 @@ noremap j gj
 noremap k gk
 
 "vimgrep, useful for systems that don't have Ack
-map <leader>gg :vimgrep //j <C-r>g <Home><Right><Right><Right><Right><Right><Right><Right><Right><Right>
-map <leader>gw :execute "vimgrep /" . expand("<cword>") . "/j **/*" <CR>
+map <leader>gg :vimgrep! //j <c-r>=b:grep_filetype<CR> <Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
+map <leader>gw :execute "vimgrep! /" . expand("<cword>") . "/j <c-r>=b:grep_filetype<CR>" <CR>
 
 "Here comes the AckAck
 map <leader>ag :Ack! "" **<left><left><left><left>
