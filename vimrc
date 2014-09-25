@@ -5,8 +5,13 @@
 "	then `pwd` should be used.
 "allow smart-completion to match words in latex files that are joined by -,_
 "stop bold font when using in terminal mode
-"allow a variable to set the search path, and include multiple filetypes e.g.
-"c,h
+"
+"The filetype grep path is kinda sucky at the moment, it uses the register
+"@g to define the search paths. The variable path doesn't change when
+"switching back and forth between already loaded buffers, an alternative
+"is to use a buffer specific variable and perform an execute command within
+"the mapping, however the downside of this is that the programmer doesn't get
+"to see the contents of the variable before execution.
 "
 "Python files by default search in python files,
 "c searches in c/h files
@@ -86,9 +91,15 @@
 " run the pathogen runtime loader
 execute pathogen#infect()
 
+set nocompatible
+
+"removes all autocommands from the group, prevents double ups on resourcing of vimrc
+autocmd!
+
+
 "initial window size
 if (&diff == 0)
-	set lines=65 columns=110
+	set lines=63 columns=110
 endif
 
 colorscheme evening
@@ -135,9 +146,12 @@ set wrap
 "only wrap after characters in the breakat variable
 set linebreak
 
+let @g='**/*'
+
 "filetype specific settings
-au FileType c,cpp,python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+au FileType c,cpp setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType c,cpp setlocal colorcolumn=99
+au FileType c,cpp let @g='**/*.c **/*.cpp **/*.h'
 
 "javascript files
 au FileType javascript setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
@@ -146,6 +160,7 @@ au FileType javascript setlocal colorcolumn=79
 "python files
 au FileType python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType python setlocal colorcolumn=79
+au FileType python let @g='**/*.py'
 
 "gradle build files are groovy code
 au BufRead,BufNewFile *.gradle setfiletype groovy
@@ -185,7 +200,7 @@ noremap j gj
 noremap k gk
 
 "vimgrep, useful for systems that don't have Ack
-map <leader>gg :vimgrep! //j **/*<left><left><left><left><left><left><left>
+map <leader>gg :vimgrep //j <C-r>g <Home><Right><Right><Right><Right><Right><Right><Right><Right><Right>
 map <leader>gw :execute "vimgrep /" . expand("<cword>") . "/j **/*" <CR>
 
 "Here comes the AckAck
