@@ -8,6 +8,14 @@
 "allow a variable to set the search path, and include multiple filetypes e.g.
 "c,h
 "
+"Python files by default search in python files,
+"c searches in c/h files
+"grepping automatically opens the cope window
+"
+"	search/find and replace:
+"		:%s/foo/bar/g		normal search and replace
+"		:%s/foo/bar/gc		ask for confirmation
+"		:%s/\<foo\>/bar/g	only replace whole word
 "	ack:
 "		:cope/:ccl	open/close quickfix
 "		Ack term	case sensitive search for term
@@ -75,8 +83,13 @@
 "	@:		Last colon command
 "	@@			repeat again
 
+" run the pathogen runtime loader
+execute pathogen#infect()
+
 "initial window size
-set lines=65 columns=110
+if (&diff == 0)
+	set lines=65 columns=110
+endif
 
 colorscheme evening
 
@@ -116,6 +129,11 @@ set softtabstop=4
 
 "enable backspace
 set backspace=indent,eol,start
+
+"wrap text in the buffer without inserting linebreaks,
+set wrap
+"only wrap after characters in the breakat variable
+set linebreak
 
 "filetype specific settings
 au FileType c,cpp,python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
@@ -174,6 +192,7 @@ map <leader>gw :execute "vimgrep /" . expand("<cword>") . "/j **/*" <CR>
 map <leader>ag :Ack! "" **<left><left><left><left>
 map <leader>aw :Ack! "\b<cword>\b"<CR>
 
+set guifont=Monospace\ 11
 "font settings
 if has("win32")
 	set guifont=Consolas:h11:cANSI
