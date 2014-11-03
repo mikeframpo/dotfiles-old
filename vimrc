@@ -5,9 +5,22 @@
 "	then `pwd` should be used.
 "allow smart-completion to match words in latex files that are joined by -,_
 "stop bold font when using in terminal mode
-"allow a variable to set the search path, and include multiple filetypes e.g.
-"c,h
 "
+"The filetype grep path is kinda sucky at the moment, it uses the register
+"@g to define the search paths. The variable path doesn't change when
+"switching back and forth between already loaded buffers, an alternative
+"is to use a buffer specific variable and perform an execute command within
+"the mapping, however the downside of this is that the programmer doesn't get
+"to see the contents of the variable before execution.
+"
+"Python files by default search in python files,
+"c searches in c/h files
+"grepping automatically opens the cope window
+"
+"	search/find and replace:
+"		:%s/foo/bar/g		normal search and replace
+"		:%s/foo/bar/gc		ask for confirmation
+"		:%s/\<foo\>/bar/g	only replace whole word
 "	ack:
 "		:cope/:ccl	open/close quickfix
 "		Ack term	case sensitive search for term
@@ -75,8 +88,19 @@
 "	@:		Last colon command
 "	@@			repeat again
 
+" run the pathogen runtime loader
+execute pathogen#infect()
+
+set nocompatible
+
+"removes all autocommands from the group, prevents double ups on resourcing of vimrc
+autocmd!
+
+
 "initial window size
-set lines=65 columns=110
+if (&diff == 0)
+	set lines=63 columns=110
+endif
 
 colorscheme evening
 
@@ -117,20 +141,27 @@ set softtabstop=4
 "enable backspace
 set backspace=indent,eol,start
 
+"wrap text in the buffer without inserting linebreaks,
+set wrap
+"only wrap after characters in the breakat variable
+set linebreak
+
 " the default filetype is all-files
-au BufEnter * let b:grep_filetype = "*"
+au BufEnter * let b:grep_filetype = "**/*"
 
 "filetype specific settings
 au FileType c,cpp,python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType c,cpp,java setlocal colorcolumn=99
 au FileType python setlocal colorcolumn=79
+au BufEnter *.c,*.cpp,*.h let b:grep_filetype='**/*.c **/*.cpp **/*.h'
+au BufEnter *.py let b:grep_filetype='**/*.py'
 
 "javascript files
 au FileType javascript setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType javascript setlocal colorcolumn=79
 
 "java files
-au BufEnter *.java let b:grep_filetype = "*.java"
+au BufEnter *.java let b:grep_filetype = "**/*.java"
 
 "gradle build files are groovy code
 au BufRead,BufNewFile *.gradle setfiletype groovy
@@ -173,13 +204,14 @@ noremap j gj
 noremap k gk
 
 "vimgrep, useful for systems that don't have Ack
-map <leader>gg :vimgrep! //j **/<c-r>=b:grep_filetype<CR> <Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
-map <leader>gw :execute "vimgrep! /" . expand("<cword>") . "/j **/<c-r>=b:grep_filetype<CR>" <CR>
+map <leader>gg :vimgrep! //j <c-r>=b:grep_filetype<CR> <Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
+map <leader>gw :execute "vimgrep! /" . expand("<cword>") . "/j <c-r>=b:grep_filetype<CR>" <CR>
 
 "Here comes the AckAck
 map <leader>ag :Ack! "" **<left><left><left><left>
 map <leader>aw :Ack! "\b<cword>\b"<CR>
 
+set guifont=Monospace\ 11
 "font settings
 if has("win32")
 	set guifont=Consolas:h11:cANSI
