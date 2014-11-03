@@ -135,6 +135,9 @@ au BufEnter *.java let b:grep_filetype = "*.java"
 "gradle build files are groovy code
 au BufRead,BufNewFile *.gradle setfiletype groovy
 
+"scons SContruct files are python code
+au BufRead,BufNewFile SConstruct setfiletype python
+
 "Let vim know we're using Latex, not one of the other tex's
 let g:tex_flavor = "latex"
 
