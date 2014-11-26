@@ -120,6 +120,8 @@ set number
 "search highlighting on
 set hlsearch
 
+set ignorecase
+
 "smart indenting
 filetype indent plugin on
 
