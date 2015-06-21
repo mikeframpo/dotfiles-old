@@ -99,7 +99,7 @@ autocmd!
 
 "initial window size
 if (&diff == 0)
-	set lines=63 columns=110
+	set lines=60 columns=110
 endif
 
 colorscheme evening
@@ -177,6 +177,10 @@ let g:tex_flavor = "latex"
 "Custom latex mappings
 nmap <leader>mi a\(\)<left><left>
 nmap <leader>me a\[<Enter>\]<Esc>O
+
+"Can navigate minibufexpl with ctrl+arrows
+let g:miniBufExplMapWindowNavArrows = 1
+map <leader>bd :MBEbd<CR>
 
 "don't display whitespace by default, listchars displays pretty much everything
 set nolist
