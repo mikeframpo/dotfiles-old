@@ -178,8 +178,12 @@ let g:tex_flavor = "latex"
 nmap <leader>mi a\(\)<left><left>
 nmap <leader>me a\[<Enter>\]<Esc>O
 
-"Can navigate minibufexpl with ctrl+arrows
-let g:miniBufExplMapWindowNavArrows = 1
+"ctrl+arrows navigates between windows
+map <C-Down>  <C-W>j
+map <C-Up>    <C-W>k
+map <C-Left>  <C-W>h
+map <C-Right> <C-W>l
+
 map <leader>bd :MBEbd<CR>
 
 "don't display whitespace by default, listchars displays pretty much everything
