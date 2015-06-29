@@ -3,6 +3,7 @@
 "allow ctrl-j/k to work in insert mode
 "allow a grep-path to be specified, if the path hasn't been specified
 "	then `pwd` should be used.
+"	look at function RenderSyntax() in minibufexpl for example
 "allow smart-completion to match words in latex files that are joined by -,_
 "stop bold font when using in terminal mode
 "
@@ -13,9 +14,9 @@
 "the mapping, however the downside of this is that the programmer doesn't get
 "to see the contents of the variable before execution.
 "
-"Python files by default search in python files,
-"c searches in c/h files
 "grepping automatically opens the cope window
+"
+"fuf replacement commands?
 "
 "	search/find and replace:
 "		:%s/foo/bar/g		normal search and replace
@@ -170,6 +171,13 @@ au BufRead,BufNewFile *.gradle setfiletype groovy
 
 "scons SContruct files are python code
 au BufRead,BufNewFile SConstruct setfiletype python
+
+hi MBENormal               guifg=#CCCCCC
+hi MBEChanged              guifg=#CD5907
+hi MBEVisibleNormal        guifg=#5DC2D6
+hi MBEVisibleChanged       guifg=#F1266F
+hi MBEVisibleActiveNormal  guifg=#A6DB29
+hi MBEVisibleActiveChanged guifg=#F1266F
 
 "Let vim know we're using Latex, not one of the other tex's
 let g:tex_flavor = "latex"
