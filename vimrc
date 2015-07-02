@@ -186,6 +186,13 @@ map <C-Right> <C-W>l
 
 map <leader>bd :MBEbd<CR>
 
+hi MBENormal               guifg=#CCCCCC
+hi MBEChanged              guifg=#CD5907
+hi MBEVisibleNormal        guifg=#5DC2D6
+hi MBEVisibleChanged       guifg=#F1266F
+hi MBEVisibleActiveNormal  guifg=#A6DB29
+hi MBEVisibleActiveChanged guifg=#F1266F
+
 "don't display whitespace by default, listchars displays pretty much everything
 set nolist
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
@@ -205,7 +212,7 @@ set scrolloff=6
 "key mappings
 map <C-j> <C-e>
 map <C-k> <C-y>
-map <C-f> :FufFile<CR>
+map <C-f> :Unite file<CR>
 map <C-h> :bprevious<CR>
 map <C-l> :bnext<CR>
 
