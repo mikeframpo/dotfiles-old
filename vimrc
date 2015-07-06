@@ -172,13 +172,6 @@ au BufRead,BufNewFile *.gradle setfiletype groovy
 "scons SContruct files are python code
 au BufRead,BufNewFile SConstruct setfiletype python
 
-hi MBENormal               guifg=#CCCCCC
-hi MBEChanged              guifg=#CD5907
-hi MBEVisibleNormal        guifg=#5DC2D6
-hi MBEVisibleChanged       guifg=#F1266F
-hi MBEVisibleActiveNormal  guifg=#A6DB29
-hi MBEVisibleActiveChanged guifg=#F1266F
-
 "Let vim know we're using Latex, not one of the other tex's
 let g:tex_flavor = "latex"
 
