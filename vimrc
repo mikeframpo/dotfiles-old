@@ -229,6 +229,10 @@ map <leader>gw :execute "vimgrep! /" . expand("<cword>") . "/j <c-r>=b:grep_file
 map <leader>ag :Ack! "" **<left><left><left><left>
 map <leader>aw :Ack! "\b<cword>\b"<CR>
 
+"run make, makeshift plugin will automatically try to figure out which command
+"to run
+nnoremap <F5> :write<CR> :make<CR>
+
 set guifont=Monospace\ 11
 "font settings
 if has("win32")
