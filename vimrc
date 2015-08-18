@@ -149,6 +149,8 @@ set wrap
 "only wrap after characters in the breakat variable
 set linebreak
 
+set nomodeline
+
 " the default filetype is all-files
 au BufEnter * let b:grep_filetype = "**/*"
 
@@ -232,6 +234,7 @@ map <leader>aw :Ack! "\b<cword>\b"<CR>
 "run make, makeshift plugin will automatically try to figure out which command
 "to run
 nnoremap <F5> :write<CR> :make<CR>
+nnoremap <F6> :write<CR> :make --tex="%:t"<CR>
 
 set guifont=Monospace\ 11
 "font settings
