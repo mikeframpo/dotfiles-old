@@ -97,12 +97,6 @@ set nocompatible
 "removes all autocommands from the group, prevents double ups on resourcing of vimrc
 autocmd!
 
-
-"initial window size
-if (&diff == 0)
-	set lines=60 columns=110
-endif
-
 colorscheme evening
 
 "show row/column
@@ -172,7 +166,7 @@ au BufEnter *.java let b:grep_filetype = "**/*.java"
 au BufRead,BufNewFile *.gradle setfiletype groovy
 
 "scons SContruct files are python code
-au BufRead,BufNewFile SConstruct setfiletype python
+au BufRead,BufNewFile SConstruct,SConscript setfiletype python
 
 "Let vim know we're using Latex, not one of the other tex's
 let g:tex_flavor = "latex"
