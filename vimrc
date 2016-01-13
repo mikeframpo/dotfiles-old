@@ -145,6 +145,12 @@ set linebreak
 
 set nomodeline
 
+"tab completion when opening a file, the first tab completes as much as
+"possible, the second provides a list of possible matches, subsequent tabs
+"cycle a list of possible matches.
+set wildmode=longest,list,full
+set wildmenu
+
 " the default filetype is all-files
 au BufEnter * let b:grep_filetype = "**/*"
 
