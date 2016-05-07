@@ -143,6 +143,8 @@ set wrap
 "only wrap after characters in the breakat variable
 set linebreak
 
+set display=lastline
+
 set nomodeline
 
 "tab completion when opening a file, the first tab completes as much as
