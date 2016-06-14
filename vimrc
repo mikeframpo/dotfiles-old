@@ -153,6 +153,9 @@ set nomodeline
 set wildmode=longest,list,full
 set wildmenu
 
+"when using autocomplete, only complete up to the typed character
+set completeopt=longest
+
 " the default filetype is all-files
 au BufEnter * let b:grep_filetype = "**/*"
 
