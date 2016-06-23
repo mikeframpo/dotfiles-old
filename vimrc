@@ -232,6 +232,9 @@ noremap k gk
 map <leader>gg :vimgrep! //j <c-r>=b:grep_filetype<CR> <Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
 map <leader>gw :execute "vimgrep! /" . expand("<cword>") . "/j <c-r>=b:grep_filetype<CR>" <CR>
 
+"find and replace in this file
+map <leader>ss :%s/<c-r><c-w>//g<Left><Left>
+
 "Here comes the AckAck
 map <leader>ag :Ack! "" **<left><left><left><left>
 map <leader>aw :Ack! "\b<cword>\b"<CR>
