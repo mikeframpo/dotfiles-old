@@ -41,6 +41,10 @@
 "		Ctrl-o		back edit location
 "		Ctrl-i		forward edit location
 "		<Leader>	mapped to \ by default
+"	navigating the changelist
+"		`.			go to last change location
+"		g;			go backward in changelist
+"		g,			go forward in changelist
 "	comment block:
 "		1. Ctrl-v
 "		2. Shift-I
@@ -192,14 +196,8 @@ map <C-Up>    <C-W>k
 map <C-Left>  <C-W>h
 map <C-Right> <C-W>l
 
-map <leader>bd :MBEbd<CR>
-
-hi MBENormal               guifg=#CCCCCC
-hi MBEChanged              guifg=#CD5907
-hi MBEVisibleNormal        guifg=#5DC2D6
-hi MBEVisibleChanged       guifg=#F1266F
-hi MBEVisibleActiveNormal  guifg=#A6DB29
-hi MBEVisibleActiveChanged guifg=#F1266F
+"close the current buffer without losing window split
+map <leader>bd :bp\|bd #<CR>
 
 "don't display whitespace by default, listchars displays pretty much everything
 set nolist
