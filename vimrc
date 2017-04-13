@@ -242,7 +242,7 @@ map <leader>aw :Ack! "\b<cword>\b"<CR>
 nnoremap <F5> :write<CR> :make<CR>
 nnoremap <F6> :write<CR> :make --tex="%:t"<CR>
 
-set guifont=Monospace\ 11
+set guifont=Droid\ Sans\ Mono\ 12
 "font settings
 if has("win32")
 	set guifont=Consolas:h11:cANSI
