@@ -168,7 +168,7 @@ au FileType c,cpp,python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType c,cpp,java setlocal colorcolumn=99
 au FileType python setlocal colorcolumn=79
 au FileType tex setlocal colorcolumn=99
-au FileType tex setlocal iskeyword=@,48-57,_,:,\\,192-255
+au FileType tex setlocal iskeyword=@,48-57,:,192-255
 au BufEnter *.c,*.cpp,*.h let b:grep_filetype='**/*.c **/*.cpp **/*.h'
 au BufEnter *.py let b:grep_filetype='**/*.py'
 
