@@ -113,6 +113,11 @@ syntax on
 " will break the lock-stepped lines which is a nice feature.
 "autocmd FilterWritePre * if &diff | setlocal wrap< | endif
 
+" move temp files into a different directory, swap files were causing
+" angular to reload all the time
+set dir=$HOME/.vim/tmp/swap
+if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif
+
 "line numbering
 set number
 
@@ -163,6 +168,8 @@ set completeopt=longest,menuone
 " the default filetype is all-files
 au BufEnter * let b:grep_filetype = "**/*"
 
+"let g:typescript_indent_disable = 1
+
 "filetype specific settings
 au FileType c,cpp,python setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType c,cpp,java setlocal colorcolumn=99
@@ -171,6 +178,8 @@ au FileType tex setlocal colorcolumn=99
 au FileType tex setlocal iskeyword=@,48-57,:,192-255
 au BufEnter *.c,*.cpp,*.h let b:grep_filetype='**/*.c **/*.cpp **/*.h'
 au BufEnter *.py let b:grep_filetype='**/*.py'
+au Filetype html setlocal filetype=htmldjango
+au BufEnter *.ts setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
 
 "javascript files
 au FileType javascript setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
@@ -244,7 +253,7 @@ map <leader>aw :Ack! "\b<cword>\b"<CR>
 nnoremap <F5> :write<CR> :make<CR>
 nnoremap <F6> :write<CR> :make --tex="%:t"<CR>
 
-set guifont=Monospace\ 11
+set guifont=Droid\ Sans\ Mono\ 12
 "font settings
 if has("win32")
 	set guifont=Consolas:h11:cANSI
