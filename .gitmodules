@@ -12,4 +12,4 @@
 	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
+	url = https://github.com/mikeframpo/vim-snippets.git
