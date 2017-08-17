@@ -156,6 +156,9 @@ set display=lastline
 
 set nomodeline
 
+"don't jump to the start of line when switching buffers
+set nostartofline
+
 "tab completion when opening a file, the first tab completes as much as
 "possible, the second provides a list of possible matches, subsequent tabs
 "cycle a list of possible matches.
