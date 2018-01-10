@@ -124,6 +124,9 @@ set number
 "search highlighting on
 set hlsearch
 
+"by default, replace all instances of a substitution in a line
+set gdefault
+
 set ignorecase
 
 "smart indenting
@@ -256,7 +259,7 @@ map <leader>aw :Ack! "\b<cword>\b"<CR>
 nnoremap <F5> :write<CR> :make<CR>
 nnoremap <F6> :write<CR> :make --tex="%:t"<CR>
 
-set guifont=Droid\ Sans\ Mono\ 12
+set guifont=Droid\ Sans\ Mono\ 11
 "font settings
 if has("win32")
 	set guifont=Consolas:h11:cANSI
