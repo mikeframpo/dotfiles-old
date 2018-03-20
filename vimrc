@@ -118,6 +118,9 @@ syntax on
 set dir=$HOME/.vim/tmp/swap
 if !isdirectory(&dir) | call mkdir(&dir, 'p', 0700) | endif
 
+" autosave when a buffer is modified
+let g:auto_save = 1
+
 "line numbering
 set number
 
