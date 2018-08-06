@@ -248,7 +248,7 @@ noremap k gk
 
 "vimgrep, useful for systems that don't have Ack
 map <leader>gg :vimgrep! //j <c-r>=b:grep_filetype<CR> <Bar> cw <Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
-map <leader>gt :vimgrep! //j **/*.tex <Bar> cw <Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
+map <leader>gt :vimgrep! //j *.tex <Bar> cw <Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
 map <leader>gw :execute "vimgrep! /" . expand("<cword>") . "/j <c-r>=b:grep_filetype<CR>" <Bar> cw <CR>
 
 "find and replace in this file
