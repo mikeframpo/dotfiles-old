@@ -238,7 +238,6 @@ set scrolloff=6
 "key mappings
 map <C-j> <C-e>
 map <C-k> <C-y>
-map <C-f> :Unite file<CR>
 map <C-h> :bprevious<CR>
 map <C-l> :bnext<CR>
 
@@ -254,9 +253,7 @@ map <leader>gw :execute "vimgrep! /" . expand("<cword>") . "/j <c-r>=b:grep_file
 "find and replace in this file
 map <leader>ss :%s/<c-r><c-w>//g<Left><Left>
 
-"Here comes the AckAck
-map <leader>ag :Ack! "" **<left><left><left><left>
-map <leader>aw :Ack! "\b<cword>\b"<CR>
+nmap <C-n> :NERDTreeToggle <CR>
 
 "run make, makeshift plugin will automatically try to figure out which command
 "to run
