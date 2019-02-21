@@ -221,6 +221,11 @@ map <C-Right> <C-W>l
 
 "close the current buffer without losing window split
 map <leader>bd :bp\|bd #<CR>
+nmap <C-x> :bp\|bd #<CR>
+
+" FZF plugin bindings
+nmap <C-f> :Files<CR>
+nmap <C-b> :Buffers<CR>
 
 "don't display whitespace by default, listchars displays pretty much everything
 set nolist
