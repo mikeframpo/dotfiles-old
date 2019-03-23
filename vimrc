@@ -101,7 +101,8 @@ set nocompatible
 "removes all autocommands from the group, prevents double ups on resourcing of vimrc
 autocmd!
 
-colorscheme evening
+set t_Co=256
+colorscheme PaperColor
 
 "show row/column
 set ruler
