@@ -98,11 +98,11 @@ execute pathogen#infect()
 
 set nocompatible
 
+colorscheme gruvbox
+set background=dark
+
 "removes all autocommands from the group, prevents double ups on resourcing of vimrc
 autocmd!
-
-set t_Co=256
-colorscheme PaperColor
 
 "show row/column
 set ruler
