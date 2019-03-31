@@ -82,7 +82,6 @@
 "
 "		zr	reduce fold level
 "		zm	more (increase) fold level
-"
 "		zf	fold the selected text
 "		zd	unfold selected lines
 "	case-insensitive-pattern matching
@@ -106,6 +105,11 @@ autocmd!
 
 "show row/column
 set ruler
+
+"prevent vim from waiting for key combinations with the esc key
+set noesckeys
+
+set ttimeoutlen=300
 
 "enable syntax highlighting
 syntax on
@@ -214,12 +218,6 @@ let g:tex_flavor = "latex"
 nmap <leader>mi a\(\)<left><left>
 nmap <leader>me a\[<Enter>\]<Esc>O
 
-"ctrl+arrows navigates between windows
-map <C-Down>  <C-W>j
-map <C-Up>    <C-W>k
-map <C-Left>  <C-W>h
-map <C-Right> <C-W>l
-
 "close the current buffer without losing window split
 map <leader>bd :bp\|bd #<CR>
 nmap <C-x> :bp\|bd #<CR>
@@ -244,25 +242,43 @@ set scroll=5
 "sets the number of lines that must be on-screen
 set scrolloff=6
 
-"key mappings
 map <C-j> <C-e>
 map <C-k> <C-y>
 map <C-h> :bprevious<CR>
 map <C-l> :bnext<CR>
+
+let g:tmux_navigator_no_mappings = 1
+
+"terminal actually passes the alt key as a funny modifier, so have to remap
+"the alt-escape codes, see https://vi.stackexchange.com/questions/2350/how-to-map-alt-key
+execute "set <M-h>=\eh"
+execute "set <M-j>=\ej"
+execute "set <M-k>=\ek"
+execute "set <M-l>=\el"
+noremap <silent> <M-h> :TmuxNavigateLeft<cr>
+noremap <silent> <M-j> :TmuxNavigateDown<cr>
+noremap <silent> <M-k> :TmuxNavigateUp<cr>
+noremap <silent> <M-l> :TmuxNavigateRight<cr>
 
 "moving up and down moves visual lines, not actual lines.
 noremap j gj
 noremap k gk
 
 "vimgrep, useful for systems that don't have Ack
-map <leader>gg :vimgrep! //j <c-r>=b:grep_filetype<CR> <Bar> cw <Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
-map <leader>gt :vimgrep! //j *.tex <Bar> cw <Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
-map <leader>gw :execute "vimgrep! /" . expand("<cword>") . "/j <c-r>=b:grep_filetype<CR>" <Bar> cw <CR>
+nnoremap <leader>gg :vimgrep! //j <c-r>=b:grep_filetype<CR> <Bar> cw <Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
+nnoremap <leader>gt :vimgrep! //j *.tex <Bar> cw <Home><Right><Right><Right><Right><Right><Right><Right><Right><Right><Right>
+nnoremap <leader>gw :execute "vimgrep! /" . expand("<cword>") . "/j <c-r>=b:grep_filetype<CR>" <Bar> cw <CR>
 
 "find and replace in this file
-map <leader>ss :%s/<c-r><c-w>//g<Left><Left>
+nnoremap <leader>ss :%s/<c-r><c-w>//g<Left><Left>
 
 nmap <C-n> :NERDTreeToggle <CR>
+
+let g:ycm_filetype_whitelist = {
+	\'c': 1,
+	\'cpp': 1,
+	\'h': 1,
+	\}
 
 "run make, makeshift plugin will automatically try to figure out which command
 "to run
