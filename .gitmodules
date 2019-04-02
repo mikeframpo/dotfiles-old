@@ -1,33 +1,33 @@
 [submodule "bundle/tlib_vim"]
-	path = bundle/tlib_vim
+	path = vim/bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
 [submodule "bundle/vim-addon-mw-utils"]
-	path = bundle/vim-addon-mw-utils
+	path = vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "bundle/vim-snipmate"]
 	path = bundle/vim-snipmate
 	url = https://github.com/garbas/vim-snipmate.git
 [submodule "bundle/typescript-vim"]
-	path = bundle/typescript-vim
+	path = vim/bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
 	url = git@github.com:mikeframpo/vim-snippets.git
 [submodule "bundle/vim-auto-save"]
-	path = bundle/vim-auto-save
+	path = vim/bundle/vim-auto-save
 	url = git@github.com:vim-scripts/vim-auto-save.git
 [submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
+	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/fzf.vim"]
-	path = bundle/fzf.vim
+	path = vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
 [submodule "bundle/YouCompleteMe"]
-	path = bundle/YouCompleteMe
+	path = vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "bundle/gruvbox"]
-	path = bundle/gruvbox
+	path = vim/bundle/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
 [submodule "bundle/vim-tmux-navigator"]
-	path = bundle/vim-tmux-navigator
+	path = vim/bundle/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
