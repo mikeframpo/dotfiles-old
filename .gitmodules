@@ -12,10 +12,10 @@
 	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
-	url = git@github.com:mikeframpo/vim-snippets.git
+	url = https://github.com/mikeframpo/vim-snippets.git
 [submodule "bundle/vim-auto-save"]
 	path = vim/bundle/vim-auto-save
-	url = git@github.com:vim-scripts/vim-auto-save.git
+	url = https://github.com/vim-scripts/vim-auto-save.git
 [submodule "bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
