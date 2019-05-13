@@ -282,8 +282,8 @@ let g:ycm_filetype_whitelist = {
 
 "run make, makeshift plugin will automatically try to figure out which command
 "to run
-nnoremap <F5> :write<CR> :make<CR>
-nnoremap <F6> :write<CR> :make --tex="%:t"<CR>
+nnoremap <F5> :make<CR>
+nnoremap <F6> :make --tex="%:t"<CR>
 
 set guifont=Droid\ Sans\ Mono\ 11
 "font settings
