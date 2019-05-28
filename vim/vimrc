@@ -272,6 +272,15 @@ nnoremap <leader>gw :execute "vimgrep! /" . expand("<cword>") . "/j <c-r>=b:grep
 "find and replace in this file
 nnoremap <leader>ss :%s/<c-r><c-w>//g<Left><Left>
 
+"shortcut for saving files
+nnoremap <leader>w :w<cr>
+
+"autoclose tags
+inoremap ( ()<Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap " ""<Left>
+
 nmap <C-n> :NERDTreeToggle <CR>
 
 let g:ycm_filetype_whitelist = {
