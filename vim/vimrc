@@ -165,6 +165,9 @@ set linebreak
 
 set display=lastline
 
+set laststatus=2
+set statusline=[%n]\ %<%f%h%m
+
 set nomodeline
 
 "don't jump to the start of line when switching buffers
