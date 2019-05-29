@@ -280,6 +280,7 @@ inoremap ( ()<Left>
 inoremap { {}<Left>
 inoremap [ []<Left>
 inoremap " ""<Left>
+inoremap ' ''<Left>
 
 nmap <C-n> :NERDTreeToggle <CR>
 
